@@ -1,0 +1,7 @@
+FROM ubuntu:20.04
+RUN apt update && apt install -y python3
+WORKDIR /var/www/html
+# RUN 으로 파일을 만들수도 있지만 COPY로 수행가능
+# RUN echo "Hello, <strong>Docker</strong>" > index.html
+# host에 있는 index.html을 현재경로(WORKDIR) "." 에 넣어줘라
+COPY ["index.html", "."]
