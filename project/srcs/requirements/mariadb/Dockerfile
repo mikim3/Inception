@@ -1,9 +1,5 @@
 FROM debian:buster
 
-RUN apt update -y
+RUN apt-get update -y && apt-get install mariadb-server -y
 
-# RUN apt install php
-
-# COPY ./tools/script.sh /
-
-# CMD [ "/script.sh" ]
+COPY ./tools/50-server.cnf /etc/mysql/mariadb.conf.d/
