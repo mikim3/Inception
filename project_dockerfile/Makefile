@@ -43,3 +43,8 @@ ls:
 	@echo volumes
 	@docker volume ls
 	@echo
+
+re:
+	make fclean
+	make all
+

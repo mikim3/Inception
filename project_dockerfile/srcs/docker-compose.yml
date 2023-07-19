@@ -65,8 +65,10 @@ services:
       - inception
     env_file:
       - .env
+    ports:
+      - 9000:9000
     tty : true
-    # restart: always
+    restart: always
 
 networks:
   inception:

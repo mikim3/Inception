@@ -23,6 +23,6 @@ server
 		# fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
 		fastcgi_param SCRIPT_FILENAME /var/www/html/$fastcgi_script_name;
 		# docker-compose에 서비스네임 가져다씀
-		fastcgi_pass wordpress:9000;
+		fastcgi_pass my_wordpress:9000;
 	}
 }

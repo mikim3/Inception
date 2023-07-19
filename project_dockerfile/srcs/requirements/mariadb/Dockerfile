@@ -17,3 +17,5 @@ CMD ["/script.sh"]
 
 # 권한이 없어서 VM에서만 가능
 # CMD ["/script.sh"]
+
+EXPOSE 3306
