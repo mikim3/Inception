@@ -1,0 +1,25 @@
+OS:     Linux 5.10.104-linuxkit #1 SMP Thu Mar 17 17:08:06 UTC 2022 x86_64
+Shell:
+PHP binary:     /usr/bin/php7.4
+PHP version:    7.4.33
+php.ini used:   /etc/php/7.4/cli/php.ini
+MySQL binary:
+MySQL version:
+SQL modes:
+WP-CLI root dir:        phar://wp-cli.phar/vendor/wp-cli/wp-cli
+WP-CLI vendor dir:      phar://wp-cli.phar/vendor
+WP_CLI phar path:       /usr/local/bin
+WP-CLI packages dir:
+WP-CLI cache dir:       /root/.wp-cli/cache
+WP-CLI global config:
+WP-CLI project config:
+WP-CLI version: 2.8.1
+
+
+/bin/bash -c "apt-get update && apt-get install -y less mysql-client &&
+curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+&& chmod +x wp-cli.phar && mv wp-cli.phar /usr/local/bin/wp
+&& wp core download --allow-root
+&& wp config create --dbname=wordpress --dbuser=wordpress --dbpass=wordpress --dbhost=db:3306 --allow-root
+&& wp core install --url=localhost --title=Example --admin_user=admin --admin_password=admin
+--admin_email=test@test.com --allow-root && apache2-foreground"

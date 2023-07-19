@@ -18,18 +18,35 @@
  * @package WordPress
  */
 
+// a helper function to lookup "env_FILE", "env", then fallback
+if (!function_exists('getenv_docker')) {
+	// https://github.com/docker-library/wordpress/issues/588 (WP-CLI will load this file 2x)
+	function getenv_docker($env, $default) {
+		if ($fileEnv = getenv($env . '_FILE')) {
+			return rtrim(file_get_contents($fileEnv), "\r\n");
+		}
+		else if (($val = getenv($env)) !== false) {
+			return $val;
+		}
+		else {
+			return $default;
+		}
+	}
+}
+
 // ** Database settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define( 'DB_NAME', '' );
+define( 'DB_NAME', getenv_docker('db1_name', 'wordpress') );
 
 /** Database username */
-define( 'DB_USER', 'username_here' );
+define( 'DB_USER', getenv_docker('db1_user', 'minsuki2') );
 
 /** Database password */
-define( 'DB_PASSWORD', 'password_here' );
+define( 'DB_PASSWORD', getenv_docker('db1_pwd', 'smile123') );
 
 /** Database hostname */
-define( 'DB_HOST', 'localhost' );
+define( 'DB_HOST',  getenv_docker('db1_host', 'database')  );
+// define( 'DB_HOST',  'localhost'  );
 
 /** Database charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8' );
