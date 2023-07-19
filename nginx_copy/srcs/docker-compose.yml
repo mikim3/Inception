@@ -5,7 +5,7 @@ volumes:
     name: wordpress
     driver: local
     driver_opts:
-      device: /goinfre/mikim3/Inception/project_dockerfile/inception_data/wordpress
+      device: /goinfre/mikim3/Inception/nginx_copy/inception_data/wordpress
       # device: /home/mikim3/data
       o: bind                               # 마운트 옵션 bind하겠다.
       type: none                            # none으로 해야 그대로 bind됨
@@ -13,7 +13,7 @@ volumes:
     name: mariadb
     driver: local
     driver_opts:
-      device: /goinfre/mikim3/Inception/project_dockerfile/inception_data/mariadb
+      device: /goinfre/mikim3/Inception/nginx_copy/inception_data/mariadb
       # device: /home/mikim3/data
       o: bind
       type: none
