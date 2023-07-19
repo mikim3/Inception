@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# 172.21.0.3 wordpress 주소
-# 172.21.0.2 mariadb주소
-
 echo "hahahha"
 # RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/server_pkey.pem -out /etc/ssl/certs/server.crt -subj "/C=KR/ST=Seoul/L=Seoul/O=42/CN=www.example.com"
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/server_pkey.pem -out /etc/ssl/certs/server.crt -subj "/C=KR/L=Seoul/O=42/CN=www.example.com"
