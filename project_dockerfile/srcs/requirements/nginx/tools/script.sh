@@ -8,7 +8,7 @@ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/ser
 
 echo "fin openssl"
 
-echo "
+echo '
 server
 {
 	listen 443 ssl;
@@ -36,7 +36,7 @@ server
 		# docker-compose에 서비스네임 가져다씀
 		fastcgi_pass my_wordpress:9000;
 	}
-} " >  /etc/nginx/sites-available/default
+} ' >  /etc/nginx/sites-available/default
 
 echo "fin make default"
 
