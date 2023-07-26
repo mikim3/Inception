@@ -24,7 +24,7 @@ wp core download --allow-root
 wp config create --dbname=$db1_name --dbuser=$db1_user --dbpass=$db1_pwd --dbhost=my_mariadb:3306 --allow-root
 
 # WordPress를 설치합니다.
-wp core install --url=localhost --title=$WP_TITLE --admin_user=$WP_ADMIN_USR --admin_password=$WP_ADMIN_PWD --admin_email=$WP_ADMIN_EMAIL --skip-email --allow-root
+wp core install --url=$DOMAIN_NAME --title=$WP_TITLE --admin_user=$WP_ADMIN_USR --admin_password=$WP_ADMIN_PWD --admin_email=$WP_ADMIN_EMAIL --skip-email --allow-root
 
 wp user create $WP_USR $WP_EMAIL --role=author --user_pass=$WP_PWD --allow-root
 
@@ -36,4 +36,4 @@ service php7.4-fpm start
 
 # /usr/sbin/php-fpm7.4 -F
 
-while true; do sleep 30; done;
+# while true; do sleep 30; done;

@@ -36,16 +36,16 @@ if (!function_exists('getenv_docker')) {
 
 // ** Database settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define( 'DB_NAME', getenv_docker('db1_name', 'wordpress') );
+define( 'DB_NAME', getenv_docker('db1_name', 'theSecret') );
 
 /** Database username */
-define( 'DB_USER', getenv_docker('db1_user', 'mikim3') );
+define( 'DB_USER', getenv_docker('db1_user', 'theSecret') );
 
 /** Database password */
-define( 'DB_PASSWORD', getenv_docker('db1_pwd', 'smile123') );
+define( 'DB_PASSWORD', getenv_docker('db1_pwd', 'theSecret') );
 
 /** Database hostname */
-define( 'DB_HOST',  getenv_docker('db1_host', 'database')  );
+define( 'DB_HOST',  getenv_docker('db1_host', 'theSecret')  );
 // define( 'DB_HOST',  'localhost'  );
 
 /** Database charset to use in creating database tables. */
@@ -99,7 +99,6 @@ $table_prefix = 'wp_';
 define( 'WP_DEBUG', false );
 
 /* Add any custom values between this line and the "stop editing" line. */
-
 
 
 /* That's all, stop editing! Happy publishing. */

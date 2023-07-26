@@ -6,7 +6,6 @@ volumes:
     driver: local
     driver_opts:
       device: /goinfre/mikim3/Inception/nginx_copy/inception_data/wordpress
-      # device: /c/Users/minsuda/Documents/GitHub/Inception/nginx_copy/inception_data/wordpress
       # device: /home/mikim3/data
       o: bind                               # 마운트 옵션 bind하겠다.
       type: none                            # none으로 해야 그대로 bind됨
@@ -15,7 +14,6 @@ volumes:
     driver: local
     driver_opts:
       device: /goinfre/mikim3/Inception/nginx_copy/inception_data/mariadb
-      # device: /c/Users/minsuda/Documents/GitHub/Inception/nginx_copy/inception_data/mariadb
       # device: /home/mikim3/data
       o: bind
       type: none
@@ -54,11 +52,6 @@ services:
     container_name: my_wordpress
     build: ./requirements/wordpress/.
     image: wordpress:42
-    # environment:
-    #   WORDPRESS_DB_HOST: ${db1_host}
-    #   WORDPRESS_DB_USER: ${db1_user}
-    #   WORDPRESS_DB_PASSWORD: ${db1_pwd}
-    #   WORDPRESS_DB_NAME: ${db1_name}
     depends_on:
       - mariadb
     volumes:
@@ -67,7 +60,6 @@ services:
       - inception
     env_file:
       - .env
-    tty : true
     restart: always
 
 networks:
