@@ -36,4 +36,4 @@ service php7.4-fpm start
 
 # /usr/sbin/php-fpm7.4 -F
 
-# while true; do sleep 30; done;
+while true; do sleep 30; done;

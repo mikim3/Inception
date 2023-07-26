@@ -1,8 +1,7 @@
 FROM debian:bullseye
 
-RUN apt-get update -y && apt-get upgrade -y && apt-get -y install nginx openssl vim
-
-# RUN apt install php
+RUN apt-get update -y
+RUN apt-get install nginx openssl -y
 
 COPY ./tools/script.sh /
 
