@@ -14,7 +14,7 @@ curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.pha
 # 다운로드한 WP-CLI를 실행 가능하도록 만듭니다.
 chmod +x wp-cli.phar
 
-# WP-CLI를 전역적으로 사용할 수 있도록 이동합니다.
+# WP-CLI를(wp명령어를) 전역적으로 사용할 수 있도록 이동합니다.
 mv wp-cli.phar /usr/local/bin/wp
 
 # WordPress Core를 다운로드합니다.
@@ -25,10 +25,6 @@ wp config create --dbname=$db1_name --dbuser=$db1_user --dbpass=$db1_pwd --dbhos
 
 # WordPress를 설치합니다.
 wp core install --url=localhost --title=$WP_TITLE --admin_user=$WP_ADMIN_USR --admin_password=$WP_ADMIN_PWD --admin_email=$WP_ADMIN_EMAIL --skip-email --allow-root
-
-# wp plugin install hello-dolly
-
-# wp plugin activate hello-dolly
 
 wp user create $WP_USR $WP_EMAIL --role=author --user_pass=$WP_PWD --allow-root
 
