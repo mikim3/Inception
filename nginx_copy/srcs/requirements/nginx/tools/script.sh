@@ -12,7 +12,6 @@ echo '
 server
 {
 	listen 443 ssl;
-  	# ssl_protocol로  TLSv1.2,1.3 둘다 사용
 	ssl_protocols  TLSv1.3;
 
 	ssl_certificate /etc/ssl/certs/server.crt;
@@ -33,7 +32,6 @@ server
 
 		# fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
 		fastcgi_param SCRIPT_FILENAME /var/www/html/$fastcgi_script_name;
-		# docker-compose에 서비스네임 가져다씀
 		fastcgi_pass my_wordpress:9000;
 	}
 } ' >  /etc/nginx/sites-available/default

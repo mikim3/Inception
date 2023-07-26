@@ -8,8 +8,4 @@ COPY ./tools/script.sh /
 
 CMD [ "./script.sh" ]
 
-# ENTRYPOINT nginx -g "daemon off;"
-
-# CMD ["nginx", "-g", "daemon off;"]
-
 EXPOSE 443

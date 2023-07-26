@@ -39,7 +39,7 @@ if (!function_exists('getenv_docker')) {
 define( 'DB_NAME', getenv_docker('db1_name', 'wordpress') );
 
 /** Database username */
-define( 'DB_USER', getenv_docker('db1_user', 'minsuki2') );
+define( 'DB_USER', getenv_docker('db1_user', 'mikim3') );
 
 /** Database password */
 define( 'DB_PASSWORD', getenv_docker('db1_pwd', 'smile123') );

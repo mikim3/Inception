@@ -2,6 +2,7 @@
 mkdir -p /var/www/html
 
 cd /var/www/html
+
 pwd
 
 # 기존에 있으면 삭제
@@ -21,9 +22,22 @@ wp core download --allow-root
 
 # wp-config.php 파일을 생성합니다.
 wp config create --dbname=$db1_name --dbuser=$db1_user --dbpass=$db1_pwd --dbhost=my_mariadb:3306 --allow-root
+
 # WordPress를 설치합니다.
 wp core install --url=localhost --title=$WP_TITLE --admin_user=$WP_ADMIN_USR --admin_password=$WP_ADMIN_PWD --admin_email=$WP_ADMIN_EMAIL --skip-email --allow-root
 
+# wp plugin install hello-dolly
+
+# wp plugin activate hello-dolly
+
+wp user create $WP_USR $WP_EMAIL --role=author --user_pass=$WP_PWD --allow-root
+
+wp theme install astra --activate --allow-root
+
+sed -i 's/listen = \/run\/php\/php7.4-fpm.sock/listen = 9000/g' /etc/php/7.4/fpm/pool.d/www.conf
+
 service php7.4-fpm start
+
+# /usr/sbin/php-fpm7.4 -F
 
 while true; do sleep 30; done;
