@@ -3,8 +3,6 @@ mkdir -p /var/www/html
 
 cd /var/www/html
 
-pwd
-
 # 기존에 있으면 삭제
 rm -rf *
 
