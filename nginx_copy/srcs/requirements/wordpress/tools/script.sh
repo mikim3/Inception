@@ -30,8 +30,8 @@ wp theme install astra --activate --allow-root
 
 sed -i 's/listen = \/run\/php\/php7.4-fpm.sock/listen = 9000/g' /etc/php/7.4/fpm/pool.d/www.conf
 
-service php7.4-fpm start
+# PID 파일의 디렉터리를 확인하고 없으면 생성합니다.
+mkdir -p /run/php
 
-# /usr/sbin/php-fpm7.4 -F
-
-while true; do sleep 30; done;
+# PHP-FPM을 포그라운드에서 실행합니다.
+exec /usr/sbin/php-fpm7.4 -F
