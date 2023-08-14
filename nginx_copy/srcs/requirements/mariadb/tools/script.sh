@@ -16,5 +16,4 @@ mysql < init.sql
 service mariadb stop
 sleep 0.1
 
-# root 사용자로 mariadbd 프로세스를 실행
-mariadbd --user=root
+mariadbd

@@ -1,4 +1,7 @@
 #!/bin/bash
+
+/wait-for-it.sh my_mariadb:3306
+
 mkdir -p /var/www/html
 
 cd /var/www/html

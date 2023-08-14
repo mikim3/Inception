@@ -32,6 +32,11 @@ services:
     networks:
       - inception
     restart: always
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
   nginx:
     container_name: my_nginx
     build: ./requirements/nginx/.
@@ -48,6 +53,12 @@ services:
     env_file:
       - .env
     restart: always
+    healthcheck:
+      test: ["CMD", "curl", "-k", "-f", "https://localhost"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    command: ["/wait-for-it.sh", "my_wordpress:9000", "--", "/script.sh"]
   wordpress:
     container_name: my_wordpress
     build: ./requirements/wordpress/.
@@ -61,6 +72,7 @@ services:
     env_file:
       - .env
     restart: always
+    command: ["/wait-for-it.sh", "my_mariadb:3306", "--", "/script.sh"]
 
 networks:
   inception:
