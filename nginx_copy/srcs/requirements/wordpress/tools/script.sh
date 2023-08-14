@@ -38,6 +38,6 @@ mkdir -p /run/php
 echo "haha fin word before"
 
 # PHP-FPM을 포그라운드에서 실행합니다.
-exec /usr/sbin/php-fpm7.4 -F
+# exec /usr/sbin/php-fpm7.4 -F
 
 echo "haha fin word"

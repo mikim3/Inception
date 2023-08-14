@@ -34,9 +34,9 @@ services:
     restart: always
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
-      interval: 10s
-      timeout: 10s
-      retries: 10
+      interval: 15s
+      timeout: 15s
+      retries: 20
   nginx:
     container_name: my_nginx
     build: ./requirements/nginx/.
@@ -56,9 +56,9 @@ services:
     restart: always
     healthcheck:
       test: ["CMD", "curl", "-k", "-f", "https://localhost"]
-      interval: 10s
-      timeout: 10s
-      retries: 10
+      interval: 20s
+      timeout: 20s
+      retries: 20
     # command: ["/wait-for-it.sh", "my_wordpress:9000", "--", "/script.sh"]
   wordpress:
     container_name: my_wordpress
@@ -74,12 +74,11 @@ services:
     env_file:
       - .env
     restart: always
-    # command: ["/wait-for-it.sh", "my_mariadb:3306", "--", "/script.sh"]
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:9000"]
-      interval: 10s
-      timeout: 10s
-      retries: 10
+      test: ["CMD-SHELL", "pgrep php-fpm"]
+      interval: 20s
+      timeout: 20s
+      retries: 20
 
 networks:
   inception:
