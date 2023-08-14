@@ -34,7 +34,7 @@ fclean:
 	docker rm -f `docker ps -aq`
 	docker rmi -f `docker images -aq`
 	docker compose -f ./srcs/docker-compose.yml down --volumes
-# docker system prune -af
+	docker system prune -af
 
 ls:
 	@echo container

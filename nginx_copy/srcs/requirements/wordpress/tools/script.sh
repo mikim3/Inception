@@ -1,6 +1,5 @@
 #!/bin/bash
-
-/wait-for-it.sh my_mariadb:3306
+# /wait-for-it.sh my_mariadb:3306
 
 mkdir -p /var/www/html
 
@@ -36,5 +35,9 @@ sed -i 's/listen = \/run\/php\/php7.4-fpm.sock/listen = 9000/g' /etc/php/7.4/fpm
 # PID 파일의 디렉터리를 확인하고 없으면 생성합니다.
 mkdir -p /run/php
 
+echo "haha fin word before"
+
 # PHP-FPM을 포그라운드에서 실행합니다.
 exec /usr/sbin/php-fpm7.4 -F
+
+echo "haha fin word"
