@@ -9,3 +9,5 @@ COPY ./tools/script.sh /
 CMD ["./script.sh"]
 
 EXPOSE 3306
+
+# HEALTHCHECK --interval=15s --timeout=15s --retries=20 CMD mysqladmin ping -h localhost || exit 1

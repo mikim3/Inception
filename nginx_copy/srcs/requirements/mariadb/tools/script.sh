@@ -12,4 +12,4 @@ echo "GRANT ALL PRIVILEGES ON $db1_name.* TO '$db1_user'@'%' ;" >> /docker-entry
 echo "FLUSH PRIVILEGES;" >> /docker-entrypoint-initdb.d/init.sql
 
 # MariaDB를 포그라운드에서 실행
-exec mariadbd
+mariadbd
