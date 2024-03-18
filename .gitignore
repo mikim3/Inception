@@ -2,3 +2,4 @@
 */inception_data/wordpress/*
 !*/inception_data/mariadb/this_is_volume
 !*/inception_data/wordpress/this_is_volume
+**/data
